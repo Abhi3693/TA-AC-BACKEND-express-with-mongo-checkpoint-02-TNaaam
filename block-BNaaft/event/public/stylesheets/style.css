@@ -1,0 +1,25 @@
+ul{
+  list-style: none;
+}
+.container{
+  width: 80%;
+  margin: 50px auto;
+}
+h1{
+  color: #00B7FF;
+  font-size: 36px;
+}
+h2{
+  color: #60b7dc;
+  font-size: 30px;
+}
+p{
+  font-size: 22px;
+}
+button{
+  padding: 5px 10px;
+  background-color: aquamarine;
+  color: rgb(84, 84, 83);
+  font-size: 18px;
+  border-radius: 10px;
+}
