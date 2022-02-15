@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/eventDetails.css">
+  <link rel="stylesheet" href="/stylesheets/comman.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+  <%- include('partials/header') -%>
+  <div class="container">
+    <ul>
+      <li class="title"> <%=event.title %></li>
+      <li class="pages"> <%=event.host %></li>
+      <li class="category-holder">
+        <a class="category" href="/category/<%=event.category._id%>"><%=event.category.event_category%></a> 
+      </li>
+      <li class="start-date author"> <%=event.start_date %></li>
+      <li class="author"> <%=event.end_date %></li>
+      <li class="author"> <%=event.location %></li>
+      <li class="summary"> <%=event.summary %></li>
+      <li class="like-count"> <%=event.likes %></li>
+    </ul>
+    <div class="update-Btn">
+      <a class="likes" href="/events/<%=event._id %>/likes"><i class="ri-thumb-up-fill"></i></a>
+      <a class="edit" href="/events/<%=event._id %>/edit">Edit</a>
+      <a class="delete" href="/events/<%=event._id %>/delete">Delete</a>
+      <a class="back" href="/events">Back</a>
+    </div>
+    <div>
+      <form action="/events/<%=event._id %>/remark" method="POST">
+        <textarea name="title" id="remarks" cols="30" rows="5" placeholder="Enter Your remark"></textarea>
+        <input type="text" name="author" placeholder="Enter author name">
+      </form>
+    </div>
+    <div>
+      <h2>Remarks</h2>
+      <ul class="remark-list">
+        <% if (event.remarks.length) { %>
+          <% event.remarks.forEach((remark)=>{ %>
+            <li class="remark-holder">
+              <h3><%= remark.title %></h3>
+              <div class="remark-all">
+                <div class="Like-Holder">
+                  <div>
+                      <h3><%=remark.author%></h3>
+                  </div>
+                  <div>
+                      <h3 class="likesCount"> <%= remark.likes %></h3>
+                      <div><a href="/remarks/<%=remark._id%>/likes" class="btn-like"><i class="ri-thumb-up-fill"></i></a></div>
+                  </div>
+                </div>
+                <div class="remark-btn-holder">
+                  <a href="/remarks/<%=remark._id%>/edit">
+                      <button class="btn edit">Edit</button>
+                  </a>
+                  <a href="/remarks/<%=remark._id%>/delete">
+                      <button class="btn delete">Delete</button>
+                  </a>
+                </div>
+              </div>
+            </li>
+          <% }) %>
+        <% }  else { %>
+            <h3>There is no any remark</h3>
+        <% } %>
+      
+      </ul>
+    </div>
+  </div>
+  <%- include('partials/footer') -%>
+</body>
+</html>
+
+
+

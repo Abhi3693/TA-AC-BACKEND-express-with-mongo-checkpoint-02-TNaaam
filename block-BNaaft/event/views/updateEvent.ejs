@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/addEvents.css">
+  <link rel="stylesheet" href="/stylesheets/comman.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header') -%>
+  <form action="/events/<%=event._id%>/edit" method="POST">
+    <h1>Add Book Details</h1>
+    <input type="text" name="title" placeholder="Enter Title of Event" value="<%=event.title%>">
+    <input type="text" name="host" placeholder="Enter Name of Host" value="<%=event.host%>">
+    <input type="text" name="location" placeholder="Enter Location of Event" value="<%=event.location%>">
+    <input type="text" name="start_date" placeholder="Enter Start Date of Event" value="<%=event.start_date%>">
+    <input type="text" name="end_date" placeholder="Enter End Date of Event" value="<%=event.end_date%>">
+    <input type="text" name="category" placeholder="Enter Category" value="<%=event.category%>">
+    <textarea name="summary" id="" cols="30" rows="5" placeholder="Enter Summary of Event"> <%=event.summary%></textarea>
+    <input type="submit" value="Add Book">
+  </form>
+  <%- include('partials/footer') -%>
+
+</body>
+</html> 
