@@ -1,0 +1,12 @@
+<ul class="event-list">
+  <% if(events.length){ %>
+    <% events.forEach((event)=>{ %>
+      <li class="list-event">
+        <h2><%=event.title %></h2>
+        <a class="read-more" href="/events/<%=event._id%>">Read more</a>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <h2>There is no any event</h2>
+  <% } %>
+</ul>
